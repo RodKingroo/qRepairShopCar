@@ -15,11 +15,11 @@ class Service():
             self.connect.commit()
     
     # insert service
-    def InsertService(self, problem, price, car, client):
+    def InsertService(self, id, problem, price, car, client):
         with self.connect.cursor as cursor:
-            request = '''INSERT INTO service (service_problem, service_price, service_car, service_client)
-                         VALUES (%s, %s, %s, %s)'''
-            cursor.execute(request, (problem, price, car, client))
+            request = '''INSERT INTO service (service_id, service_problem, service_price, service_car, service_client)
+                         VALUES (%s, %s, %s, %s, %s)'''
+            cursor.execute(request, (id, problem, price, car, client))
             self.connect.commit()
             
     # get service_id
@@ -35,7 +35,7 @@ class Service():
                 return result
             
     # get all services
-    def GetAllServoce(self):
+    def GetAllService(self):
         with self.connect.cursor() as cursor:
             request = '''SELECT * FROM service'''
             cursor.execute(request)

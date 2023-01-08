@@ -1,6 +1,6 @@
 from mysql.connector import MySQLConnection
 
-def connect():
+def Connect():
     connect = MySQLConnection(host='localhost',
                               user='root',
                               password='chanmeme',

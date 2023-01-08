@@ -16,11 +16,11 @@ class Car():
             self.connect.commit()
     
     # insert car
-    def InsertCar(self, brand, place, year, model, km, owner):
+    def InsertCar(self, id, brand, place, year, model, km, owner):
         with self.connect.cursor as cursor:
-            request = '''INSERT INTO car (car_brand, car_plate, car_year, car_model, car_km, car_owner)
-                         VALUES (%s, %s, %s, %s, %s, %s)'''
-            cursor.execute(request, (brand, place, year, model, km, owner))
+            request = '''INSERT INTO car (car_id, car_brand, car_plate, car_year, car_model, car_km, car_owner)
+                         VALUES (%s, %s, %s, %s, %s, %s, %s)'''
+            cursor.execute(request, (id, brand, place, year, model, km, owner))
             self.connect.commit()
             
     # get car_id

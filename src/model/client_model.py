@@ -13,11 +13,11 @@ class Client():
             self.connect.commit()
     
     # insert client
-    def InsertClient(self, name, cpf, address, phone):
+    def InsertClient(self, id, name, cpf, address, phone):
         with self.connect.cursor as cursor:
-            request = '''INSERT INTO client (client_name, client_cpf, client_address, client_phone)
-                         VALUES (%s, %s, %s, %s)'''
-            cursor.execute(request, (name, cpf, address, phone))
+            request = '''INSERT INTO client (client_id, client_name, client_cpf, client_address, client_phone)
+                         VALUES (%s, %s, %s, %s, %s)'''
+            cursor.execute(request, (id, name, cpf, address, phone))
             self.connect.commit()
             
     # get client_id
