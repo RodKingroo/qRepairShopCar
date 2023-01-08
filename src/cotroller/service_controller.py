@@ -1,5 +1,5 @@
-from src.model.service_model import Service
-from src.sql.connection import Connect
+from model.service_model import Service
+from sql.connection import Connect
 
 class ServiceController():
     def __init__(self):

@@ -6,28 +6,28 @@ class Client():
             request = '''CREATE TABLE IF NOT EXISTS client
                         (client_id INT PRIMARY KEY UNIQUE,
                          client_name VARCHAR(256) NOT NULL,
-                         client_cpf CHAR(11) NOT NULL,
+                         client_passport CHAR(11) NOT NULL,
                          client_adress VARCHAR(256) NOT NULL
                          client_phone CHAR(11) NOT NULL)'''
             cursor.execute(request)
             self.connect.commit()
     
     # insert client
-    def InsertClient(self, id, name, cpf, address, phone):
+    def InsertClient(self, id, name, passport, address, phone):
         with self.connect.cursor as cursor:
-            request = '''INSERT INTO client (client_id, client_name, client_cpf, client_address, client_phone)
+            request = '''INSERT INTO client (client_id, client_name, client_passport, client_address, client_phone)
                          VALUES (%s, %s, %s, %s, %s)'''
-            cursor.execute(request, (id, name, cpf, address, phone))
+            cursor.execute(request, (id, name, passport, address, phone))
             self.connect.commit()
             
     # get client_id
-    def GetClient_ID(self, name, cpf, address, phone):
+    def GetClient_ID(self, name, passport, address, phone):
         with self.connect.cursor() as cursor:
             request = """SELECT client_id FROM client WHERE client_name = %s
-                                                        and client_cpf = %s
+                                                        and client_passport = %s
                                                         and client_address = %s
                                                         and client_phone = %s"""
-            cursor.execute(request, (name, cpf, address, phone))
+            cursor.execute(request, (name, passport, address, phone))
             result = cursor.fetchone()
             if result:
                 return result

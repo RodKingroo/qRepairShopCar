@@ -1,5 +1,5 @@
-from src.model.car_model import Car
-from src.sql.connection import Connect
+from model.car_model import Car
+from sql.connection import Connect
 
 class CarController():
     def __init__(self):
