@@ -9,5 +9,4 @@ class SearchCommand(QtWidgets.QWidget):
         super(SearchCommand, self).__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-        self.setFixedWidth(self.width)
-        self.setFixedHeight(self.height)
+        self.setFixedSize(self.width, self.height)
