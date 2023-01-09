@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Добавить сервис</string>
   </property>
-  <widget class="QLineEdit" name="service_problem_line_edit_2">
+  <widget class="QLineEdit" name="service_problem_line_edit">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -49,7 +49,7 @@
     <string>ID</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="service_price_line_edit_2">
+  <widget class="QLineEdit" name="service_price_line_edit">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -72,7 +72,7 @@
     <string>Проблема</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="service_id_line_edit_2">
+  <widget class="QLineEdit" name="service_id_line_edit">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -113,7 +113,7 @@
     <string>Всего проблем:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="count_car_line_2">
+  <widget class="QLineEdit" name="count_service_line">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -149,7 +149,7 @@
     <string>Клиент</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="car_owner_combo_box_2">
+  <widget class="QComboBox" name="service_car_combo_box">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -159,7 +159,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="car_owner_combo_box_3">
+  <widget class="QComboBox" name="service_owner_combo_box">
    <property name="geometry">
     <rect>
      <x>90</x>

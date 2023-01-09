@@ -2,26 +2,26 @@ class Car():
     #  create table: car
     def __init__(self, connect):
         self.connect = connect
-        with self.connect.cursor as cursor:
-            request = '''CREATE TABLE IF NOT EXISTS car
-                        (car_id INT PRIMARY KEY UNIQUE,
-                         car_brand VARCHAR(128) NOT NULL,
-                         car_plate CHAR(7) NOT NULL,
-                         car_year INT NOT NULL
-                         car_model VARCHAR(128) NOT NULL,
-                         car_km INT NOT NULL,
-                         car_owner INTEGER NOT NULL,
-                         FOREIGN KEY(car_owner) REFERENCES client(client_id))'''
+        with self.connect.cursor() as cursor:
+            request = '''CREATE TABLE IF NOT EXISTS car (car_id INT PRIMARY KEY UNIQUE, 
+                                                         car_brand VARCHAR(128) NOT NULL, 
+                                                         car_plate CHAR(7) NOT NULL, 
+                                                         car_year INT NOT NULL, 
+                                                         car_model VARCHAR(128) NOT NULL, 
+                                                         car_km INT NOT NULL, 
+                                                         car_owner INTEGER NOT NULL, 
+                                                         FOREIGN KEY(car_owner) REFERENCES client(client_id))'''
             cursor.execute(request)
             self.connect.commit()
     
     # insert car
     def InsertCar(self, id, brand, place, year, model, km, owner):
-        with self.connect.cursor as cursor:
+        with self.connect.cursor() as cursor:
             request = '''INSERT INTO car (car_id, car_brand, car_plate, car_year, car_model, car_km, car_owner)
                          VALUES (%s, %s, %s, %s, %s, %s, %s)'''
             cursor.execute(request, (id, brand, place, year, model, km, owner))
-            self.connect.commit()
+        self.connect.commit()
+        print("Complete!")
             
     # get car_id
     def GetCar_ID(self, brand, plate, year, model, km, owner):
@@ -43,7 +43,8 @@ class Car():
             request = '''SELECT * FROM car'''
             cursor.execute(request)
             result = cursor.fetchall()
-            return result
+            if result:
+                return result
     
     # update car
     def UpdateCar(self, id, brand, place, year, model, km, owner):

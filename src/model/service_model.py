@@ -2,12 +2,12 @@ class Service():
     #  create table: services
     def __init__(self, connect):
         self.connect = connect
-        with self.connect.cursor as cursor:
+        with self.connect.cursor() as cursor:
             request = '''CREATE TABLE IF NOT EXISTS service
                         (service_id INT PRIMARY KEY UNIQUE,
                          service_problem VARCHAR(256) NOT NULL,
                          service_price FLOAT NOT NULL,
-                         service_car INT NOT NULL
+                         service_car INT NOT NULL,
                          service_client INT NOT NULL,
                          FOREIGN KEY(service_car) REFERENCES car(car_id),
                          FOREIGN KEY(service_client) REFERENCES client(client_id))'''
@@ -16,7 +16,7 @@ class Service():
     
     # insert service
     def InsertService(self, id, problem, price, car, client):
-        with self.connect.cursor as cursor:
+        with self.connect.cursor() as cursor:
             request = '''INSERT INTO service (service_id, service_problem, service_price, service_car, service_client)
                          VALUES (%s, %s, %s, %s, %s)'''
             cursor.execute(request, (id, problem, price, car, client))
@@ -31,8 +31,7 @@ class Service():
                                                           and servoce_client = %s"""
             cursor.execute(request, (problem, price, car, client))
             result = cursor.fetchone()
-            if result:
-                return result
+            return result
             
     # get all services
     def GetAllService(self):

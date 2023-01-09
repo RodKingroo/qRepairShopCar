@@ -23,9 +23,12 @@ class IndexCommand(QtWidgets.QWidget):
         self.SelectSearch()
         
     def SelectRegister(self):
-        self.ui.regestration_button.clicked.connect(lambda: self.client_reg.show())
-        self.ui.regestration_button.clicked.connect(lambda: self.car_reg.show())
-        self.ui.regestration_button.clicked.connect(lambda: self.service_reg.show())
+        self.ui.regestration_button.clicked.connect(lambda: self.ShowRegWindows())
+    
+    def ShowRegWindows(self):
+        self.client_reg.show()
+        self.car_reg.show() 
+        self.service_reg.show()
     
     def SelectSearch(self):
         self.ui.search_button.clicked.connect(lambda: self.search.show())
