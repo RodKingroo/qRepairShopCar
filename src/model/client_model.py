@@ -35,11 +35,11 @@ class Client():
     # get client_id
     def GetClient_ID(self, combobox):
         with self.connect.cursor() as cursor:
-            request = '''SELECT client_id FROM client'''
+            request = '''SELECT client_name, client_id FROM client'''
             cursor.execute(request)
             result = cursor.fetchall()
-            while result:
-                combobox.addItem(str(result))
+            for r in result:
+                combobox.addItem(str(r[0]), str(r[1]))
             
     # get all client
     def GetAllClient(self):

@@ -1,9 +1,8 @@
 from mysql.connector import MySQLConnection
+from config.read_config import ReadMySQLConfig
 
 def Connect():
-    connect = MySQLConnection(host='localhost',
-                              user='root',
-                              password='chanmeme',
-                              database='cars')
+    db_config = ReadMySQLConfig()
+    connect = MySQLConnection(**db_config)
     
     return connect
