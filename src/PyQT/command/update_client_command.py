@@ -15,5 +15,12 @@ class ClientUpdateCommand(QtWidgets.QWidget):
         self.UpdateClient()
    
     def UpdateClient(self):
-        self.clientController.GetAllClient(self.ui.comboBox)  
+        self.clientController.GetAllClient(self.ui.comboBox)
+        # self.ui.searchButton.clicked.connect(
+        #     self.clientController.GetClient_name(
+        #         self.ui.comboBox.currentData(), 
+        #         self.ui.client_name_line_edit,
+        #         self.ui.client_passport_line_edit,
+        #         self.ui.client_address_line_edit,
+        #         self.ui.client_phone_line_edit))
         
